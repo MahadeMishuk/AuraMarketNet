@@ -13,11 +13,11 @@ Capabilities of AuraMarketNet
 
 | Step | Description |
 |------|-------------|
-| **1 INGEST** | Real-time quotes, news & OHLCV from Yahoo Finance. |
-| **2 ANALYZE** | Fine-tuned FinBERT reads every headline. 86.78% accuracy on Financial PhraseBank. |
-| **3 PREDICT** | Multi-modal AI fusion (text + price). Direction, expected return, volatility - simultaneously. |
-| **4 BACKTEST** | 6-strategy professional engine with Sharpe, Sortino, max drawdown. Commission + slippage modeled. |
-| **5 VISUALIZE** | Production dashboard. WebSocket live updates. 4-panel synchronized Plotly charts. |
+| **INGEST** | Real-time quotes, news & OHLCV from Yahoo Finance. |
+| **ANALYZE** | Fine-tuned FinBERT reads every headline. 86.78% accuracy on Financial PhraseBank. |
+| **PREDICT** | Multi-modal AI fusion (text + price). Direction, expected return, volatility - simultaneously. |
+| **BACKTEST** | 6-strategy professional engine with Sharpe, Sortino, max drawdown. Commission + slippage modeled. |
+| **VISUALIZE** | Production dashboard. WebSocket live updates. 4-panel synchronized Plotly charts. |
 
 ---
 
