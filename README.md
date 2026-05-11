@@ -19,6 +19,41 @@ Capabilities of AuraMarketNet
 | **4 BACKTEST** | 6-strategy professional engine with Sharpe, Sortino, max drawdown. Commission + slippage modeled. |
 | **5 VISUALIZE** | Production dashboard. WebSocket live updates. 4-panel synchronized Plotly charts. |
 
+---
+
+## Text Analyzer
+
+The Text Analyzer lets you feed any custom financial text - a headline, earnings
+commentary, analyst note — and get a full AI market impact assessment in under 400 milliseconds.
+
+---
+
+### How It Works
+
+#### Step 1 — Sentiment Classification (FinBERT)
+Your text is passed through **FinBERT**, a 110M-parameter transformer fine-tuned
+on financial language:
+
+1. The tokenizer breaks your input into **WordPiece tokens**
+2. The transformer produces a **[CLS] representation** of the full sequence
+3. A **softmax over 3 classes** outputs probabilities for `NEGATIVE`, `NEUTRAL`, and `POSITIVE`
+
+> **Example:** `"Apple has shown robust performance in the tech sector"`
+> → FinBERT assigns **97% positive probability** → displayed as `POSITIVE +0.97`
+
+---
+
+### Example Input & Output
+![Dashboard](Images/textanalyzer.png)
+
+### Performance
+
+| Metric | Value |
+|--------|-------|
+| Response time | < 400ms |
+| Model | FinBERT (110M parameters) |
+| Accuracy on Financial PhraseBank | 86.78% |
+| Output classes | Negative / Neutral / Positive |
 
 ## API Reference
 
@@ -76,11 +111,11 @@ bash scripts/deploy_runpod.sh
 ### Step 4 — Open SSH Tunnel
 Open a **new terminal tab** and keep it running:
 ```bash
-ssh -L 8080:localhost:8080 -i ~/.ssh/id_ed25519 -p 32146 root@213.173.108.102 -N
+ssh -L ****:localhost:**** -i ~/.ssh/id_ed***** -p ***** root@****.****.****.**** -N
 ```
 
 ### Step 5 — Open the Dashboard
-http://localhost:8080
+http://localhost:****
 
 ### Step 6 — On RunPod
 ```bash
@@ -123,8 +158,8 @@ pip install -r /workspace/AuraMarketNet/requirements.txt && python /workspace/Au
 ```bash
 python train.py \
   --resume AuraMarketNet-v1_checkpoints/aura_market_net_epoch_002.pt \
-  --epochs 30 \
-  --batch-size 64
+  --epochs ** \
+  --batch-size **
 ```
 
 ---
@@ -159,6 +194,50 @@ Go to the RunPod dashboard and click **Stop** on your pod — otherwise it keeps
 | Check status | `bash scripts/status.sh` |
 | Stop app | `bash scripts/stop.sh` |
 | Deploy new model | `bash scripts/deploy_model.sh <path/to/model.pt>` |
-| SSH tunnel | `ssh -L 8080:localhost:8080 -i ~/.ssh/id_ed25519 -p 32146 root@213.173.108.102 -N` |
-| Dashboard | `http://localhost:8080` |
+| SSH tunnel | `ssh -L ****:localhost:**** -i ~/.ssh/id_ed***** -p ***** root@****.****.****.**** -N` |
+| Dashboard | `http://localhost:****` |
 
+---
+
+## Background & Resources
+
+AuraMarketNet builds on a foundation of academic research in financial NLP,
+multimodal AI, and sentiment-driven market prediction. No existing codebase
+was used as a starting point — the architecture was designed from scratch,
+drawing on the following papers and datasets.
+
+---
+
+### Research Papers
+
+| Paper | Link |
+|-------|------|
+| **FinBERT** — BERT adapted for financial sentiment analysis | [arxiv.org/pdf/1908.10063](http://arxiv.org/pdf/1908.10063) |
+| **RoBERTa** — Robustly optimized BERT pretraining approach | [arxiv.org/pdf/1907.11692](https://arxiv.org/pdf/1907.11692) |
+| **News Sentiment Embeddings for Stock Price Forecasting** | [arxiv.org/html/2507.01970v1](https://arxiv.org/html/2507.01970v1) |
+| **A Financial Multimodal Sentiment Analysis** | [atlantis-press.com](https://www.atlantis-press.com/proceedings/icmsem-25/126016206) |
+| **FinMarBa** — A Market-Informed Dataset for Financial Sentiment Classification | [arxiv.org/html/2507.22932v1](https://arxiv.org/html/2507.22932v1) |
+| **Sentiment and Volatility in Financial Markets** — A Review of BERT and GARCH Applications during Geopolitical Crises | [arxiv.org/html/2510.16503v1](https://arxiv.org/html/2510.16503v1) |
+| **Earnings News Cause Immediate Stock Price Jumps** — Rady School of Management | [rady.ucsd.edu](https://rady.ucsd.edu/why/news/2025/03-18-earnings-news-cause-immediate-stock-price-jumps-sometimes-moving-whole-market.html) |
+
+---
+
+### Datasets
+
+| Resource | Link |
+|----------|------|
+| **Financial PhraseBank** — Hugging Face dataset search | [huggingface.co](https://huggingface.co/search/full-text?q=The+Financial+PhraseBank+dataset&type=dataset) |
+| **Financial PhraseBank Sentiment Analysis** — Reference implementation | [github.com/vrunm](https://github.com/vrunm/Text-Classification-Financial-Phrase-Bank) |
+
+---
+
+### How This Project Builds on Existing Work
+
+AuraMarketNet extends these foundations in the following ways:
+
+- **FinBERT** is used as the base model and fine-tuned on Financial PhraseBank
+  to achieve **86.78% accuracy** on financial headline sentiment classification.
+- The **multimodal fusion** approach (text + OHLCV price data) is inspired by
+  recent research on combining sentiment embeddings with quantitative signals.
+- The **backtesting engine** and **live dashboard** are original components
+  built specifically for this project.
