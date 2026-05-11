@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Images/logo.jpg" width="150" alt="Logo">
+  <img src="Images/logo.jpg" width="150" alt="Logo" style="border-radius: 12px">
 </p>
 #AuraMarketNet
 **Real-Time Multi-Modal Sentiment Analysis**
