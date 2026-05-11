@@ -44,7 +44,9 @@ on financial language:
 ---
 
 ### Example Input & Output
-![Dashboard](Images/textanalyzer.png)
+<p align="center">
+  <img src="Images/textanalyzer.png" width="500" alt="Logo">
+</p>
 
 ### Performance
 
