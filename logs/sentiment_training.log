@@ -1,0 +1,218 @@
+19:29:52 | numexpr.utils        | INFO | NumExpr defaulting to 8 threads.
+21:33:24 | numexpr.utils        | INFO | NumExpr defaulting to 8 threads.
+21:33:24 | train_sentiment      | INFO | 
+====================================================================
+21:33:24 | train_sentiment      | INFO |   FinBERT Sentiment Fine-Tuning  —  Financial PhraseBank
+21:33:24 | train_sentiment      | INFO |   Dataset : lmassaron/FinancialPhraseBank
+21:33:24 | train_sentiment      | INFO | ====================================================================
+
+21:33:24 | train_sentiment      | INFO | Device: Apple Silicon MPS
+21:33:27 | utils.data_loader    | INFO | Downloading lmassaron/FinancialPhraseBank from Hugging Face (attempt 1/3) ...
+21:33:27 | datasets.load        | ERROR | `trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'lmassaron/FinancialPhraseBank' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/lmassaron/FinancialPhraseBank/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/README.md "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/lmassaron/FinancialPhraseBank/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/README.md "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/FinancialPhraseBank.py "HTTP/1.1 404 Not Found"
+21:33:28 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/lmassaron/FinancialPhraseBank/lmassaron/FinancialPhraseBank.py "HTTP/1.1 404 Not Found"
+21:33:28 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/datasets/lmassaron/FinancialPhraseBank/revision/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/.huggingface.yaml "HTTP/1.1 404 Not Found"
+21:33:28 | httpx                | INFO | HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=lmassaron/FinancialPhraseBank "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/datasets/lmassaron/FinancialPhraseBank/tree/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/datasets/lmassaron/FinancialPhraseBank/tree/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba?recursive=false&expand=false "HTTP/1.1 200 OK"
+21:33:28 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/dataset_infos.json "HTTP/1.1 404 Not Found"
+21:33:29 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/data/train-00000-of-00001.parquet "HTTP/1.1 302 Found"
+21:33:29 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/datasets/lmassaron/FinancialPhraseBank/xet-read-token/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba "HTTP/1.1 200 OK"
+21:33:30 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/data/validation-00000-of-00001.parquet "HTTP/1.1 302 Found"
+21:33:30 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/datasets/lmassaron/FinancialPhraseBank/resolve/06d8ade1cdb9050fa4e7cce7841054fc6eacf7ba/data/test-00000-of-00001.parquet "HTTP/1.1 302 Found"
+21:33:31 | utils.data_loader    | INFO |   Split 'train': 3,872 rows
+21:33:31 | utils.data_loader    | INFO |   Split 'validation': 484 rows
+21:33:31 | utils.data_loader    | INFO |   Split 'test': 484 rows
+21:33:31 | utils.data_loader    | INFO | Cached dataset → data/hf_cache/lmassaron_FinancialPhraseBank.parquet
+21:33:31 | utils.data_loader    | INFO | ────────────────────────────────────────────────────────
+21:33:31 | utils.data_loader    | INFO | Financial PhraseBank — Dataset Sanity Check
+21:33:31 | utils.data_loader    | INFO |   Total rows    : 4,840
+21:33:31 | utils.data_loader    | INFO |   Missing text  : 0
+21:33:31 | utils.data_loader    | INFO |   Missing labels: 0
+21:33:31 | utils.data_loader    | INFO |   Class distribution:
+21:33:31 | utils.data_loader    | INFO |     neutral   : 2,873  (59.4%)  █████████████████
+21:33:31 | utils.data_loader    | INFO |     positive  : 1,363  (28.2%)  ████████
+21:33:31 | utils.data_loader    | INFO |     negative  :   604  (12.5%)  ███
+21:33:31 | utils.data_loader    | INFO |   Sample sentences:
+21:33:31 | utils.data_loader    | INFO |     [neutral ] Risk exposure by Non-life Insurance  Moving 12-month  Expenses by function in No
+21:33:31 | utils.data_loader    | INFO |     [neutral ] Deliveries of Nokia 1112 , Nokia 2310 and Nokia 2610 are expected to start in th
+21:33:31 | utils.data_loader    | INFO |     [neutral ] Deutsche Beteiligungs , as well as a private equity fund it manages , first boug
+21:33:31 | utils.data_loader    | INFO | ────────────────────────────────────────────────────────
+21:33:31 | utils.data_loader    | INFO | Dropped 2 duplicate sentences
+21:33:31 | utils.data_loader    | INFO | Dropped 1 sentences shorter than 10 chars
+21:33:31 | utils.data_loader    | INFO | Preprocessing complete: 4,837 clean samples
+21:33:31 | train_sentiment      | INFO | Loading tokenizer: ProsusAI/finbert
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/tokenizer_config.json "HTTP/1.1 200 OK"
+21:33:31 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+21:33:31 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+21:33:31 | utils.data_loader    | INFO | Sentiment dataset splits — train: 3,869 | val: 484 | test: 484
+21:33:31 | train_sentiment      | INFO | Building FinBERTSentimentClassifier ...
+21:33:31 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+21:33:31 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+21:33:32 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+21:33:32 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert "HTTP/1.1 200 OK"
+21:33:32 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/main "HTTP/1.1 200 OK"
+21:33:33 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/discussions?p=0 "HTTP/1.1 200 OK"
+21:33:33 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+21:33:33 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/refs%2Fpr%2F29 "HTTP/1.1 200 OK"
+21:33:33 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+21:33:33 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors "HTTP/1.1 302 Found"
+21:33:33 | train_sentiment      | INFO | Trainable parameters: 29,337,987
+21:33:33 | train_sentiment      | INFO | Class weights: neg=1.814  neu=0.381  pos=0.805
+21:33:33 | train_sentiment      | INFO | 
+Starting training — 10 epochs, batch=16, lr=2e-05
+22:55:19 | train_sentiment      | INFO | Epoch 01/10 [4906s] | train_loss=0.6250 | val_loss=0.6660 | val_acc=0.7624 | val_f1=0.7645
+22:55:24 | train_sentiment      | INFO |   Saved best checkpoint (val_f1=0.7645) → /Users/mdmahadehasanmishuk/Desktop/AuraMarketNet/checkpoints/finbert_sentiment_best.pt
+00:22:36 | utils.data_loader    | INFO | Loading Financial PhraseBank from cache: data/hf_cache/lmassaron_FinancialPhraseBank.parquet
+00:22:36 | utils.data_loader    | INFO | ────────────────────────────────────────────────────────
+00:22:36 | utils.data_loader    | INFO | Financial PhraseBank — Dataset Sanity Check
+00:22:36 | utils.data_loader    | INFO |   Total rows    : 4,840
+00:22:36 | utils.data_loader    | INFO |   Missing text  : 0
+00:22:36 | utils.data_loader    | INFO |   Missing labels: 0
+00:22:36 | utils.data_loader    | INFO |   Class distribution:
+00:22:36 | utils.data_loader    | INFO |     neutral   : 2,873  (59.4%)  █████████████████
+00:22:36 | utils.data_loader    | INFO |     positive  : 1,363  (28.2%)  ████████
+00:22:36 | utils.data_loader    | INFO |     negative  :   604  (12.5%)  ███
+00:22:36 | utils.data_loader    | INFO |   Sample sentences:
+00:22:36 | utils.data_loader    | INFO |     [neutral ] Risk exposure by Non-life Insurance  Moving 12-month  Expenses by function in No
+00:22:36 | utils.data_loader    | INFO |     [neutral ] Deliveries of Nokia 1112 , Nokia 2310 and Nokia 2610 are expected to start in th
+00:22:36 | utils.data_loader    | INFO |     [neutral ] Deutsche Beteiligungs , as well as a private equity fund it manages , first boug
+00:22:36 | utils.data_loader    | INFO | ────────────────────────────────────────────────────────
+00:22:36 | utils.data_loader    | INFO | Dropped 2 duplicate sentences
+00:22:36 | utils.data_loader    | INFO | Dropped 1 sentences shorter than 10 chars
+00:22:36 | utils.data_loader    | INFO | Preprocessing complete: 4,837 clean samples
+00:22:37 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+00:22:37 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+00:22:37 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+00:22:37 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/tokenizer_config.json "HTTP/1.1 200 OK"
+00:22:37 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+00:22:37 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+00:22:37 | utils.data_loader    | INFO | Sentiment dataset splits — train: 3,869 | val: 484 | test: 484
+00:22:38 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+00:22:39 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+00:22:39 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+00:22:41 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+00:22:41 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert "HTTP/1.1 200 OK"
+00:22:42 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/main "HTTP/1.1 200 OK"
+00:22:42 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/discussions?p=0 "HTTP/1.1 200 OK"
+00:22:42 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+00:22:42 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/refs%2Fpr%2F29 "HTTP/1.1 200 OK"
+00:22:42 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+00:22:42 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+00:22:42 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors "HTTP/1.1 302 Found"
+01:54:51 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/tokenizer_config.json "HTTP/1.1 200 OK"
+01:54:52 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+01:54:52 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+01:54:52 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:54:52 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:54:53 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+01:54:53 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert "HTTP/1.1 200 OK"
+01:54:53 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/main "HTTP/1.1 200 OK"
+01:54:53 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/discussions?p=0 "HTTP/1.1 200 OK"
+01:54:53 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+01:54:53 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/refs%2Fpr%2F29 "HTTP/1.1 200 OK"
+01:54:53 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+01:54:53 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:54:53 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors "HTTP/1.1 302 Found"
+01:54:55 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+01:55:44 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:55:44 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/tokenizer_config.json "HTTP/1.1 200 OK"
+01:55:44 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+01:55:44 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+01:55:44 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:55:44 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:55:45 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+01:55:45 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert "HTTP/1.1 200 OK"
+01:55:45 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/main "HTTP/1.1 200 OK"
+01:55:45 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/discussions?p=0 "HTTP/1.1 200 OK"
+01:55:45 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+01:55:45 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/refs%2Fpr%2F29 "HTTP/1.1 200 OK"
+01:55:45 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+01:55:45 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors "HTTP/1.1 302 Found"
+01:55:46 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+01:56:38 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+01:56:38 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/tokenizer_config.json "HTTP/1.1 200 OK"
+01:56:38 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+01:56:38 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+01:56:38 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ProsusAI/finbert/4556d13015211d73dccd3fdd39d39232506f3e43/config.json "HTTP/1.1 200 OK"
+01:56:38 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+01:56:39 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert "HTTP/1.1 200 OK"
+01:56:39 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/main "HTTP/1.1 200 OK"
+01:56:39 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+01:56:39 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/discussions?p=0 "HTTP/1.1 200 OK"
+01:56:39 | httpx                | INFO | HTTP Request: GET https://huggingface.co/api/models/ProsusAI/finbert/commits/refs%2Fpr%2F29 "HTTP/1.1 200 OK"
+01:56:39 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+01:56:39 | httpx                | INFO | HTTP Request: HEAD https://huggingface.co/ProsusAI/finbert/resolve/refs%2Fpr%2F29/model.safetensors "HTTP/1.1 302 Found"
+01:56:40 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+01:59:20 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+01:59:20 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+01:59:21 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+01:59:22 | huggingface_hub.utils._http | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01:59:22 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+02:01:14 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+02:01:14 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+02:01:15 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+02:01:16 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+02:41:39 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+02:41:39 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+02:41:40 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+02:41:41 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+02:41:41 | utils.market_inference | INFO | Loading AuraMarketNet v1 on mps ← AuraMarketNet-v1_checkpoints/aura_market_net_best.pt
+02:41:46 | models.text_encoder  | INFO | Loading pretrained model: ProsusAI/finbert
+02:41:47 | models.text_encoder  | INFO | Frozen 133/199 BERT parameters
+02:41:47 | models.aura_market_net | INFO | AuraMarketNet initialized
+02:41:47 | models.aura_market_net | INFO |   Total parameters:     118,742,705
+02:41:47 | models.aura_market_net | INFO |   Trainable parameters: 38,202,545
+02:41:47 | models.aura_market_net | INFO |   Frozen parameters:    80,540,160
+02:41:48 | utils.market_inference | INFO | AuraMarketNet v1 ready | epoch=1 | val_dir_acc=0.5341 | val_vol_corr=0.4553 | device=mps
+02:41:48 | utils.market_inference | WARNING | OHLCV fetch failed for AAPL: No module named 'yfinance'
+02:41:48 | utils.market_inference | WARNING | OHLCV fetch failed for NVDA: No module named 'yfinance'
+02:41:48 | utils.market_inference | WARNING | OHLCV fetch failed for TSLA: No module named 'yfinance'
+02:41:48 | utils.market_inference | WARNING | OHLCV fetch failed for MSFT: No module named 'yfinance'
+02:41:48 | utils.market_inference | WARNING | OHLCV fetch failed for AAPL: No module named 'yfinance'
+02:42:34 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:40 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:41 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:41 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:41 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:41 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:42:41 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:43:47 | utils.sentiment_inference | INFO | Loading FinBERT sentiment model on mps ← checkpoints/finbert_sentiment_best.pt
+02:43:49 | utils.sentiment_inference | INFO | FinBERT sentiment ready | val_f1=0.7645 | epoch=1 | device=mps
+02:43:49 | utils.market_inference | INFO | Loading AuraMarketNet v1 on mps ← AuraMarketNet-v1_checkpoints/aura_market_net_best.pt
+02:43:57 | utils.market_inference | INFO | AuraMarketNet kernel warm-up complete
+02:43:57 | utils.market_inference | INFO | AuraMarketNet v1 ready | epoch=1 | val_dir_acc=0.5341 | val_vol_corr=0.4553 | device=mps
+02:43:59 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:43:59 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:44:00 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:44:00 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:44:00 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:44:00 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
+02:44:00 | utils.feature_engineering | INFO | Computed 45 features for 82 rows
