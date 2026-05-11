@@ -30,7 +30,7 @@ commentary, analyst note — and get a full AI market impact assessment in under
 
 ### How It Works
 
-#### Step 1 — Sentiment Classification (FinBERT)
+#### Sentiment Classification (FinBERT)
 Your text is passed through **FinBERT**, a 110M-parameter transformer fine-tuned
 on financial language:
 
